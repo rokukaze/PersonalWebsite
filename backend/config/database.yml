@@ -22,6 +22,9 @@ default: &default
 
 development:
   <<: *default
+  # Use DATABASE_URL if provided (for Docker/containerized environments)
+  url: <%= ENV["DATABASE_URL"] %>
+  # Otherwise falls back to these settings:
   database: backend_development
 
   # The specified database role being used to connect to PostgreSQL.
